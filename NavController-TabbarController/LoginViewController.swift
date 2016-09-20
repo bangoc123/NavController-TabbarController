@@ -28,6 +28,10 @@ class LoginViewController: BaseViewController {
         updateContraint(LogoToTopViewContraint)
         
         createUser()
+        
+        transparent = true
+        
+        setTitleForBackButton("Trở lại")
     }
     
     @IBAction func signUpAction(sender: AnyObject) {
@@ -79,6 +83,7 @@ class LoginViewController: BaseViewController {
             let alertController = UIAlertController(title: "Error", message: "No Information", preferredStyle: .Alert)
             
             let alertAction = UIAlertAction(title: "Try Again", style: .Default, handler: nil)
+            
             alertController.addAction(alertAction)
             
             presentViewController(alertController, animated: true, completion: nil)

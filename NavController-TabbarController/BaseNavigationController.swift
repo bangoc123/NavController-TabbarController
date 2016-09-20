@@ -9,8 +9,11 @@
 import UIKit
 
 class BaseNavigationController: UINavigationController {
+    
     override func viewDidLoad() {
-
+        navigationBar.tintColor = UIColor.whiteColor()
+        
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "SFUIText-Regular", size: 18)!]
     }
     
 }

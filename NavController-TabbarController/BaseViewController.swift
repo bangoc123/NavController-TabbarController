@@ -19,6 +19,47 @@ class BaseViewController: UIViewController {
     
     // MARK: Update Contraints
     
+    
+    var transparent: Bool?{
+        didSet{
+            if transparent == true{
+                setTransparentForUINavigationBar()
+            }
+        }
+    }
+    
+    
+    var setTitleForBackButton: String?{
+        
+        didSet{
+            guard let title = self.setTitleForBackButton else {return}
+            
+            setTitleForBackButton(title)
+        }
+    
+    }
+    
+    func setTransparentForUINavigationBar(){
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        
+    }
+    
+    
+    func setTitleForBackButton(title: String){
+        
+        let backButton =  UIBarButtonItem()
+        
+        backButton.title = title
+        
+        navigationItem.backBarButtonItem = backButton
+        
+        
+    }
+    
     func updateContraint(contraint : NSLayoutConstraint!){
         print(contraint.constant)
         

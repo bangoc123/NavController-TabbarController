@@ -12,7 +12,14 @@ class BaseTabbarController: UITabBarController, UITabBarControllerDelegate {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        tabBar.barTintColor = UIColor(red: 0.149, green: 0.2, blue: 0.255, alpha: 1.0)
+        
+        tabBar.translucent = false
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "SFUIText-Regular", size: 12)!], forState: .Normal)
 
     }
     
@@ -30,15 +37,39 @@ class BaseTabbarController: UITabBarController, UITabBarControllerDelegate {
         
         let profileNav = BaseNavigationController(rootViewController: profileVC)
         
+        settingNavForEachController(bookVC, transparent: true, navTitle: "BOOK NAV", tabbarTitle: "BOOK", image: "Book", selectedImage: "Selected-Book")
+        
+        settingNavForEachController(homeVC, transparent: true, navTitle: "HOME NAV", tabbarTitle: "HOME", image: "Home", selectedImage: "Selected-Home")
+        
+        settingNavForEachController(profileVC, transparent: true, navTitle: "PROFILE NAV", tabbarTitle: "PROFILE", image: "Profile", selectedImage: "Selected-Profile")
+        
+        
         viewControllers = [bookNav, homeNav, profileNav]
         
-        bookVC.title = "Book"
         
-        profileVC.title = "Profile"
+    }
+    
+    func settingNavForEachController(viewController: BaseViewController, transparent: Bool, navTitle: String, tabbarTitle: String, image: String, selectedImage: String){
         
-        homeVC.title = "Home"
+        viewController.navigationItem.title = navTitle
+        
+        viewController.tabBarItem = UITabBarItem(title: tabbarTitle, image: UIImage(named: image)?.imageWithRenderingMode(.AlwaysOriginal), selectedImage: UIImage(named: selectedImage)?.imageWithRenderingMode(.AlwaysOriginal))
+        viewController.transparent = transparent
+        
+    
     }
     
     
     
+    
 }
+
+
+
+
+
+
+
+
+
+
