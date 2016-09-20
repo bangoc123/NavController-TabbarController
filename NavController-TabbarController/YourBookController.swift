@@ -19,14 +19,31 @@ class YourBookController: BaseViewController {
         
 //        navigationItem.leftBarButtonItem = cameraButtonItem
         
-        let rightButton = UIBarButtonItem(image: UIImage(named: "EMAIL"), style: .Plain, target: self, action: #selector(sendEmail))
+        let emailButton = UIBarButtonItem(image: UIImage(named: "EMAIL"), style: .Plain, target: self, action: #selector(sendEmail))
         
-        let buttons = [cameraButtonItem, rightButton]
+        let messageButton = UIBarButtonItem(image: UIImage(named: "MESSAGE"), style: .Plain, target: self, action: #selector(sendMessage))
         
-        navigationItem.setRightBarButtonItems(buttons, animated: true)
+        let instagramButton = UIBarButtonItem(image: UIImage(named: "INSTAGRAM"), style: .Plain, target: self, action: #selector(instagram))
+
         
-        navigationItem.setLeftBarButtonItems(buttons, animated: true)
         
+        
+        let leftButtons = [cameraButtonItem, emailButton]
+        
+        let rightButtons = [messageButton, instagramButton]
+        
+        navigationItem.setLeftBarButtonItems(leftButtons, animated: true)
+        
+        navigationItem.setRightBarButtonItems(rightButtons, animated: true)
+
+    }
+    
+    func instagram(){
+        print("Let instagram")
+    }
+    
+    func sendMessage(){
+        print("Send message")
     }
     
     
